@@ -1,7 +1,14 @@
-<html>
-<head>gengmzh.github.com</head>
+---
+layout: default
+title: gengmzh@github.com
+---
 
-<body>
-gengmzh@github pages
-</body>
-</html>
+<div id="posts">
+	<h1>Blog Posts</h1>
+	<ul>
+		{% for post in site.posts %}
+		<li><span>{{post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+		{% endfor %}
+	</ul>
+
+</div>
