@@ -1,13 +1,16 @@
 ---
 layout: page
-title: Hello World!
-tagline: Supporting tagline
+title: Programming Intelligence
+tagline: stackoverflow, outofmemory, internal, unknown
 ---
 {% include JB/setup %}
 
-Read [Jekyll Quick Start](http://jekyllbootstrap.com/usage/jekyll-quick-start.html)
-
-Complete usage and documentation available at: [Jekyll Bootstrap](http://jekyllbootstrap.com)
+你移，或者不移  
+指针就在那里，不来不去  
+你放，或者不放  
+内存就在那里，不舍不弃  
+你爱恋，或者不爱恋  
+算法就在那里，不悲，也不喜
 
 ## Update Author Attributes
 
