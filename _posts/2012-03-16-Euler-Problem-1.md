@@ -29,7 +29,7 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 		return sum;
 	}
 
-考虑程序的扩展性，比如是求因子6，7，9的倍数，需要减去6和7、7和9及6和9的公倍数，最后还要加上6、7、9三者的公倍数，程序复制性会立马上升。
+考虑程序的扩展性，比如是求因子6，7，9的倍数，需要减去6和7、7和9及6和9的公倍数，最后还要加上6、7、9三者的公倍数，程序复杂性会立马上升。
 
 一般解法，从1到n过滤一遍所有数，时间复杂度也只有O(n\*m)，其中m为因子个数。  
 完整代码见：[alg](https://github.com/gengmzh/alg/blob/master/src/main/java/com/github/gengmzh/euler/Problem1.java)
