@@ -2,7 +2,7 @@
 layout: post
 title: How to blog on github
 category : lessons
-tags : [intro, beginner, jekyll, tutorial]
+tags : [github, beginner]
 tagline: my first blog on github.com
 ---
 {% include JB/setup %}
@@ -10,9 +10,11 @@ tagline: my first blog on github.com
 ## references
 **base structure**  
 + [Jekyll-Bootstrap](http://jekyllbootstrap.com/)
+
 **markdown syntax**  
 + [Markdown Syntax](http://daringfireball.net/projects/markdown/syntax)
 + [Markdown 语法](http://markdown.tw/)
+
 **others**  
 + [Github Pages](http://pages.github.com/)
 + [Jekyll wiki](https://github.com/mojombo/jekyll/wiki)
