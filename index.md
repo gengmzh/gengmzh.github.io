@@ -12,6 +12,14 @@ tagline: stackoverflow, outofmemory, internal, unknown
 你爱恋，或者不爱恋  
 算法就在那里，不悲，也不喜
 
+## Blog Posts
+
+<ul class="posts">
+  {% for post in site.posts %}
+    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>
+
 ## Update Author Attributes
 
 In `_config.yml` remember to specify your own data:
@@ -32,14 +40,6 @@ This blog contains sample posts which help stage pages and blog data.
 When you don't need the samples anymore just delete the `_posts/core-samples` folder.
 
     $ rm -rf _posts/core-samples
-
-Here's a sample "posts list".
-
-<ul class="posts">
-  {% for post in site.posts %}
-    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
-  {% endfor %}
-</ul>
 
 ## To-Do
 

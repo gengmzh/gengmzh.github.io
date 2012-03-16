@@ -8,11 +8,12 @@ tagline: my first blog on github.com
 {% include JB/setup %}
 
 ## references
-**base structure**
+**base structure**  
 + [Jekyll-Bootstrap](http://jekyllbootstrap.com/)
-**markdown syntax**
+**markdown syntax**  
 + [Markdown Syntax](http://daringfireball.net/projects/markdown/syntax)
-**others**
++ [Markdown语法](http://markdown.tw/)
+**others**  
 + [Github Pages](http://pages.github.com/)
 + [Jekyll wiki](https://github.com/mojombo/jekyll/wiki)
 + [mojombo source](https://github.com/mojombo/mojombo.github.com)
