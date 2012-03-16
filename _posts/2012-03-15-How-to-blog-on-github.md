@@ -12,7 +12,7 @@ tagline: my first blog on github.com
 + [Jekyll-Bootstrap](http://jekyllbootstrap.com/)
 **markdown syntax**  
 + [Markdown Syntax](http://daringfireball.net/projects/markdown/syntax)
-+ [Markdown语法](http://markdown.tw/)
++ [Markdown 语法](http://markdown.tw/)
 **others**  
 + [Github Pages](http://pages.github.com/)
 + [Jekyll wiki](https://github.com/mojombo/jekyll/wiki)
