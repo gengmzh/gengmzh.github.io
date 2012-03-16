@@ -15,6 +15,7 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 
 ## Answer
 其实就是得考虑下公倍数问题，一开始还遗漏了，汗。  
+
 考虑效率的话，可以先算出3的倍数和，在算出5的倍数和，然后再减去3和5的最小公倍数15的倍数和即可，代码如下：  
     public static long sumMultipleOfThreeAndFive(long n) {
     	long sum = 0;
