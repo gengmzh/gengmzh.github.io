@@ -14,7 +14,7 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 [problem 1](http://projecteuler.net/problem=1){:target="_blank"}
 
 ## Answer
-其实就是得考虑下公倍数问题，一开始还遗漏了，汗。  
+其实就是得考虑下公倍数问题，一开始还算错了，汗啊。  
 
 考虑效率的话，可以先算出3的倍数和，在算出5的倍数和，然后再减去3和5的最小公倍数15的倍数和即可，代码如下：
 
@@ -29,7 +29,7 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 		return sum;
 	}
 
-考虑程序的扩展性，比如是求因子6，7，9的倍数，需要减去6和7、7和9及6和9的公倍数，最后还要加上6、7、9三者的公倍数，程序复制性会立马上升。
+考虑程序的扩展性，比如是求因子6，7，9的倍数，需要减去6和7、7和9及6和9的公倍数，最后还要加上6、7、9三者的公倍数，程序复杂性会立马上升。
 
 一般解法，从1到n过滤一遍所有数，时间复杂度也只有O(n\*m)，其中m为因子个数。  
 完整代码见：[alg](https://github.com/gengmzh/alg/blob/master/src/main/java/com/github/gengmzh/euler/Problem1.java)
