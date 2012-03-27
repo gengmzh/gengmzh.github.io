@@ -28,6 +28,7 @@ tags : [jdk7, quicksort]
 It is proved that for the Dual-Pivot Quicksort the average number of comparisons is 2*n*ln(n), the average number of swaps is 0.8*n*ln(n), 
 whereas classical Quicksort algorithm has 2*n*ln(n) and 1*n*ln(n) respectively.
 
+
 ### references
 + [Replacement of Quicksort in java.util.Arrays with new Dual-Pivot Quicksort](http://permalink.gmane.org/gmane.comp.java.openjdk.core-libs.devel/2628)
 + [Dual Pivot Quicksort in Java](http://anshu-manymoods.blogspot.com/2009/10/dual-pivot-quicksort-in-java.html)
