@@ -8,7 +8,7 @@ tags : [jdk7, quicksort]
 
 `Dual Pivot Quicksort`
 
-## 经典快排
+## classic quicksort
 经典快排的思路是：  
 + 选择一个中枢点P
 + 将数组按中枢点分割为\[\<P \| P\<\]左右两份，左边的都小于中枢点，右边的都大于中枢点
@@ -16,7 +16,7 @@ tags : [jdk7, quicksort]
 
 [代码示例](https://github.com/gengmzh/alg/blob/master/src/main/java/com/github/gengmzh/alg/sort/QuickSort.java)
 
-## 双枢快排
+## dual-pivot quicksort
 双枢快排的思路是：  
 + 选择两个中枢点，P1、P2，P1<=P2
 + 将数组分割为\[\<P1 \| P1\< && <P2 \| P2\<\]三部分
