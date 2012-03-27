@@ -18,7 +18,7 @@ tags : [jdk7, quicksort]
 
 ## dual-pivot quicksort
 双枢快排的思路是：  
-+ 选择两个中枢点，P1、P2，P1<=P2
++ 选择两个中枢点P1和P2，P1<=P2
 + 将数组分割为\[&lt;P1 \| P1&lt; &amp; &lt;P2 \| P2&lt;\]三部分
 + 按上述逻辑递归处理三个子数组
 
