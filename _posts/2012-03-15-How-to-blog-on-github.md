@@ -7,7 +7,7 @@ tagline: my first blog on github.com
 ---
 {% include JB/setup %}
 
-## references
+### references
 **base structure**  
 + [Jekyll-Bootstrap](http://jekyllbootstrap.com/)
 
