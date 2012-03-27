@@ -14,6 +14,7 @@ tagline: my first blog on github.com
 **markdown syntax**  
 + [Markdown Syntax](http://daringfireball.net/projects/markdown/syntax)
 + [Markdown 语法](http://markdown.tw/)
++ [Markdown 中文基础教程文档](http://opengit.org/open/?f=source_markdown-basics)
 
 **others**  
 + [Github Pages](http://pages.github.com/)
