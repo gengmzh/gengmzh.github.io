@@ -15,7 +15,7 @@ tags : [jdk7, quicksort]
 2. 将数组按中枢点分割为左右两份，左边的都小于P，右边的都大于P
 3. 按上述逻辑递归处理左右两个子数组
 
-[代码示例](https://github.com/gengmzh/alg/blob/master/src/main/java/com/github/gengmzh/alg/sort/QuickSort.java)
+代码示例：[Quicksort](https://github.com/gengmzh/alg/blob/master/src/main/java/com/github/gengmzh/alg/sort/QuickSort.java)
 
 ## dual-pivot quicksort
 双枢快排的思路是：
@@ -24,7 +24,7 @@ tags : [jdk7, quicksort]
 2. 将数组分割为&lt;P1、&gt;P1 &amp; &lt;P2、&gt;P2三部分
 3. 按上述逻辑递归处理三个子数组
 
-[代码示例](https://github.com/gengmzh/alg/blob/master/src/main/java/com/github/gengmzh/alg/sort/DualPivotQuicksort.java)
+代码示例：[DualPivotQuicksort](https://github.com/gengmzh/alg/blob/master/src/main/java/com/github/gengmzh/alg/sort/DualPivotQuicksort.java)
 
 **性能比较**  
 It is proved that for the Dual-Pivot Quicksort the average number of comparisons is 2*n*ln(n), the average number of swaps is 0.8*n*ln(n), 
