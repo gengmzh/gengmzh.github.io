@@ -25,7 +25,6 @@ tagline: stackoverflow, outofmemory, internal, unknown
 + [JDK7 Docs](http://docs.oracle.com/javase/7/docs/)
 + [NIO2 File System](http://docs.oracle.com/javase/tutorial/essential/io/fileio.html)
 
-
 ## Sample Posts
 
 This blog contains sample posts which help stage pages and blog data.
