@@ -20,20 +20,12 @@ tagline: stackoverflow, outofmemory, internal, unknown
   {% endfor %}
 </ul>
 
-## Update Author Attributes
+## follows
+**JDK7**  
++ [JDK7 Docs](http://docs.oracle.com/javase/7/docs/)
++ [NIO2 File System](http://docs.oracle.com/javase/tutorial/essential/io/fileio.html)
 
-In `_config.yml` remember to specify your own data:
-    
-    title : My Blog =)
-    
-    author :
-      name : Name Lastname
-      email : blah@email.test
-      github : username
-      twitter : username
 
-The theme should reference these variables whenever needed.
-    
 ## Sample Posts
 
 This blog contains sample posts which help stage pages and blog data.
