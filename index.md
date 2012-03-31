@@ -21,11 +21,13 @@ tagline: stackoverflow, outofmemory, internal, unknown
 </ul>
 
 ## follows
-**JDK7**
+**JDK7**  
 + [JDK7 Docs](http://docs.oracle.com/javase/7/docs/)
 + [NIO2 File System](http://docs.oracle.com/javase/tutorial/essential/io/fileio.html)
 
-    
+**Mahout**  
++ [Apache Mahout](http://mahout.apache.org/)
+
 ## Sample Posts
 
 This blog contains sample posts which help stage pages and blog data.
