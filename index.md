@@ -25,9 +25,9 @@ tagline: stackoverflow, outofmemory, internal, unknown
 + [JDK7 Docs](http://docs.oracle.com/javase/7/docs/)
 + [NIO2 File System](http://docs.oracle.com/javase/tutorial/essential/io/fileio.html)
 
-**Mahout**  
+**Mahout**
 <ul class="posts">
-	<li><span>3/31 2012</span> &raquo; <a href="http://mahout.apache.org/">Apache Mahout</a></li>
+	<li><span>3/31 2012</span> &raquo; <a href="http://mahout.apache.org/" target="_blank">Apache Mahout</a></li>
 </ul>
 
 
