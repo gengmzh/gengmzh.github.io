@@ -21,11 +21,13 @@ tagline: stackoverflow, outofmemory, internal, unknown
 </ul>
 
 ## follows
-**JDK7**  
+<ul class="posts">
+	<li><span>4/1 2012</span> &raquo; <a href="http://projecteuler.net/problems" target="_blank">Project Euler</a></li>
+</ul>
+
 + [JDK7 Docs](http://docs.oracle.com/javase/7/docs/)
 + [NIO2 File System](http://docs.oracle.com/javase/tutorial/essential/io/fileio.html)
 
-**Mahout**
 <ul class="posts">
 	<li><span>3/31 2012</span> &raquo; <a href="http://mahout.apache.org/" target="_blank">Apache Mahout</a></li>
 </ul>
