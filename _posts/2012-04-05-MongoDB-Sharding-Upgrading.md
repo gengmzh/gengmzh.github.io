@@ -155,6 +155,7 @@ tags : [MongoDB, Sharding, replSet]
 	        ……
 
 
+
 ### references
 + [Replica Sets](http://www.mongodb.org/display/DOCS/Replica+Sets)
 + [Changing Config Servers](http://www.mongodb.org/display/DOCS/Changing+Config+Servers)
