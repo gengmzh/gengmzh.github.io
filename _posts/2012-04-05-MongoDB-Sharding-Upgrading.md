@@ -138,7 +138,7 @@ configdb要不是1台，要不是3台或更多，一般3台即可满足灾备需
 	        ……
 
 
-### references
+## references
 + [Replica Sets](http://www.mongodb.org/display/DOCS/Replica+Sets)
 + [Changing Config Servers](http://www.mongodb.org/display/DOCS/Changing+Config+Servers)
 
