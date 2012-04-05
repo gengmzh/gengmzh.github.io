@@ -25,7 +25,7 @@ tagline: stackoverflow, outofmemory, internal, unknown
 	<li><span>4/1 2012</span> &raquo; <a href="http://projecteuler.net/problems" target="_blank">Project Euler</a></li>
 	
 	<li><span>3/31 2012</span> &raquo; <a href="http://docs.oracle.com/javase/7/docs/" target="_blank">JDK7 Docs</a></li>
-	<li><span>3/31 2012</span> &raquo; <a href="http://projecteuler.net/problems" target="_blank">NIO2 File System</a></li>
+	<li><span>3/31 2012</span> &raquo; <a href="http://docs.oracle.com/javase/tutorial/essential/io/fileio.html" target="_blank">NIO2 File System</a></li>
 	
 	<li><span>3/31 2012</span> &raquo; <a href="http://mahout.apache.org/" target="_blank">Apache Mahout</a></li>
 </ul>
