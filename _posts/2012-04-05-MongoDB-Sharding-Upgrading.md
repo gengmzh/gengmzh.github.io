@@ -19,10 +19,9 @@ tags : [MongoDB, Sharding, replSet]
 
 
 ## 新增副本
-添加新副本比较简单，先启动新的mongod节点，然后使用rs.add把新节点添加到副本集中即可。具体操作如下  
-
-+ shard01当前配置
-	通过rs.config()可以查看当前副本集配置
+添加新副本比较简单，先启动新的mongod节点，然后使用rs.add把新节点添加到副本集中即可。具体操作如下
+**shard01当前配置**  
+通过rs.config()可以查看当前副本集配置
 
 	[mba@server01 ~]$ cd /home/mba/local/mongodb-2.0.2
 	[mba@server01 ~]$ ./bin/mongo we1bo.corp.mediav.com:27018
@@ -46,15 +45,13 @@ tags : [MongoDB, Sharding, replSet]
 	        ]
 	}
 
-
-+ 启动新节点
-	直接启动一个新的mongod实例即可
+**启动新节点**  
+直接启动一个新的mongod实例即可
 
 	./bin/mongod --port 27038 --replSet shard01/we1bo.corp.mediav.com:27018 --fork --dbpath /home/mba/data/data/shard01/node03 --oplogSize 1024 --logpath /home/mba/data/logs/shard01/node03/mongod.log
 
-
-+ 添加新节点
-	连接到shard01首节点，使用rs.add直接添加即可
+**添加新节点**  
+连接到shard01首节点，使用rs.add直接添加即可
 
 	./bin/mongo we1bo.corp.mediav.com:27018/admin
 	rs.add({_id: 3, host: "we1bo.corp.mediav.com:27038", priority: 1})
@@ -68,8 +65,8 @@ tags : [MongoDB, Sharding, replSet]
 
 必须把所有mongod、configdb、mongos都暂停掉，其实configdb也就是一般的mongod进程
 
-+ 暂停所有mongo进程
-	先kill mongos进程，第一次kill的时候半天没有反应，以为是有client连接造成，关闭所有client连接后仍然没反应，考虑到当前没有对MongoDB的数据更新操作，直接kill -9 1879了，最终kill掉了，也没有造成数据错误。
+**暂停所有mongo进程**  
+先kill mongos进程，第一次kill的时候半天没有反应，以为是有client连接造成，关闭所有client连接后仍然没反应，考虑到当前没有对MongoDB的数据更新操作，直接kill -9 1879了，最终kill掉了，也没有造成数据错误。
 后来测试在有client连接时使用无参kill也可正常杀掉mongos进程，想到一开始执行的添加副本操作，可能因此使得第一次kill失败。
 下面再依次kill掉configdb、secondary副本、primary副本。
 
@@ -90,9 +87,8 @@ tags : [MongoDB, Sharding, replSet]
 	[mba@server01 mongodb-2.0.2]$ kill 32670
 	[mba@server01 mongodb-2.0.2]$ kill 32642
 
-
-+ 启动新的configdb实例
-	configdb要不是1台，要不是3台或更多，一般3台即可满足灾备需求，所以新增2台即可。
+**启动新的configdb实例**  
+configdb要不是1台，要不是3台或更多，一般3台即可满足灾备需求，所以新增2台即可。  
 直接复制原configdb的data目录
 
 	[mba@server01 ~]$ cd /home/mba/data/data/
@@ -106,9 +102,8 @@ tags : [MongoDB, Sharding, replSet]
 	[mba@server01 mongodb-2.0.2]$ ./bin/mongod --port 27029 --fork --dbpath /home/mba/data/data/configdb2 --oplogSize 1024 --logpath /home/mba/data/logs/configdb2/mongod.log
 	[mba@server01 mongodb-2.0.2]$ ./bin/mongod --port 27039 --fork --dbpath /home/mba/data/data/configdb3 --oplogSize 1024 --logpath /home/mba/data/logs/configdb3/mongod.log
 
-
-+ 重启所有mongo进程
-	按官方文档[Upgrading from one config server to three](http://www.mongodb.org/display/DOCS/Changing+Config+Servers#ChangingConfigServers-Upgradingfromoneconfigservertothree)
+**重启所有mongo进程**  
+按官方文档[Upgrading from one config server to three](http://www.mongodb.org/display/DOCS/Changing+Config+Servers#ChangingConfigServers-Upgradingfromoneconfigservertothree)
 先重启mongos进程再重启mongod进程会出错，错误如下
 
 	Thu Apr  5 15:34:57 [Balancer] warning: could not initialize balancer, please check that all shards and config servers are up: socket exception
