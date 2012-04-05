@@ -19,7 +19,7 @@ tags : [MongoDB, Sharding, replSet]
 
 
 ## 新增副本
-添加新副本比较简单，先启动新的mongod节点，然后使用rs.add把新节点添加到副本集中即可。具体操作如下
+添加新副本比较简单，先启动新的mongod节点，然后使用rs.add把新节点添加到副本集中即可。具体操作如下  
 **shard01当前配置**  
 通过rs.config()可以查看当前副本集配置
 
@@ -63,7 +63,7 @@ tags : [MongoDB, Sharding, replSet]
 	Thu Apr  5 14:52:33 [Balancer] caught exception while doing balance: could not initialize sharding on connection we1bo.corp.mediav.com:27019 :: caused by :: specified a different configdb!
 
 
-必须把所有mongod、configdb、mongos都暂停掉，其实configdb也就是一般的mongod进程
+必须把所有mongod、configdb、mongos都暂停掉，其实configdb也就是一般的mongod进程  
 
 **暂停所有mongo进程**  
 先kill mongos进程，第一次kill的时候半天没有反应，以为是有client连接造成，关闭所有client连接后仍然没反应，考虑到当前没有对MongoDB的数据更新操作，直接kill -9 1879了，最终kill掉了，也没有造成数据错误。
