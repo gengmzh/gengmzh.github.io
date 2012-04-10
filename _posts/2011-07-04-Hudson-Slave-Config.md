@@ -1,8 +1,8 @@
 ---
 layout: post
 title: hudson slave 配置
-category : jdk
-tags : [jdk7, quicksort]
+category : engineering
+tags : [hudson]
 ---
 {% include JB/setup %}
 
@@ -56,5 +56,5 @@ Restrict where this project can be run，填写刚刚创建的slave名称
 最后在构建任务的设置页，invoke ant下ant version选择ant1.8.2即可。  
 
 
-### references
+## references
 + [Hudson CI](http://hudson-ci.org/)
