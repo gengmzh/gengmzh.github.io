@@ -2,7 +2,7 @@
 layout: post
 title: How to blog on github
 category : lessons
-tags : [github, beginner]
+tags : [github, jekyll]
 tagline: my first blog on github.com
 ---
 {% include JB/setup %}

@@ -2,7 +2,7 @@
 layout: post
 title: JDK7的语法糖
 category : jdk
-tags : [jdk7, syntactic, sugar]
+tags : [jdk7]
 ---
 {% include JB/setup %}
 
