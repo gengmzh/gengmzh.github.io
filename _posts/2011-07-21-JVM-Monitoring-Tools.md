@@ -2,7 +2,7 @@
 layout: post
 title: JVM监控工具
 category : jdk
-tags : [jvm, monitoring]
+tags : [jvm]
 ---
 {% include JB/setup %}
 
