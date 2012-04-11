@@ -6,7 +6,7 @@ tags : [jdk7]
 ---
 {% include JB/setup %}
 
-`JDK7 File IO/Featuring NIO.2`  
+`JDK7 File IO/Featuring NIO.2`
 又一片碎文
 
 ## 入口
