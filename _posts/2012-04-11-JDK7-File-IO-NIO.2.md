@@ -7,7 +7,7 @@ tags : [jdk7]
 {% include JB/setup %}
 
 `JDK7 File IO/Featuring NIO.2`  
-又是一片碎文章
+又一片碎文
 
 ## 入口
 JDK7的新文件系统主要在`java.nio.file`报下，主要入口类有
