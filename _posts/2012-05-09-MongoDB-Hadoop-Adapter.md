@@ -47,7 +47,13 @@ input适配主要是使用`MongoInputFormat`对MongoDB输入进行分割，split
 TODO
 
 ## output
-TODO  
+output适配就更为简单了，直接使用`MongoOutputFormat`将MapReduce任务的输出存到MongoDB中即可，代码逻辑如下：  
+![MongoOutputFormat](https://github.com/gengmzh/gengmzh.github.com/raw/master/_includes/MongoOutputFormat.png)  
+
+## issues
+**性能问题**  
+在hadoop集群环境下直接操作MongoDB，性能瓶颈不可避免，除非MongoDB分片架构有和hadoop相当的规模，此时可以考虑批量导库方式。
+
 
 ## references
 + [mongo-hadoop](https://github.com/mongodb/mongo-hadoop)
