@@ -14,6 +14,8 @@ Hadoop框架能够保证每个reduce的输入都是按键值排序的，因此�
 如果能够保证reduce之间的顺序，即第i个reduce中的数据都小于第i+1个reduce中数据，则最终结果也就全局有序。  
 那么就要先制定区间，各区间和reduce依次对应，用partitioner把数据依次归到对应的reduce中，hadoop中已有相印实现TotalOrderPartitioner。  
 Hadoop全局排序的基本思路：  
+<<<<<<< HEAD
+
 + 先对数据进行抽样，对抽样数据进行排序获得区间
 + Map处理后直接输出数据
 + Partitioner根据数据所属区间将数据发到对应的reduce
@@ -101,8 +103,12 @@ Hadoop全局排序的基本思路：
 	
 	}
 
+## 问题记录
+**File \_partition.lst does not exist**  
+在google桑翻阅了各种网页，无果。后来发现setPartitionFile没有成功，最初使用`TotalOrderPartitioner.setPartitionFile(getConf(), pfile);`进行设置，
+但`new Job(getConf(), "terasort")`时Job并非直接持有getConf返回的引用，而是又new了一个JobConf，坑啊！所以setPartitionFile得使用`job.getConfiguration()`作为参数。
 
-### references
+## references
 + [Newsmth的讨论](http://www.newsmth.net/nForum/#!article/Java/301680?p=1)
 + [使用hadoop进行大规模数据的全局排序 ](http://stblog.baidu-tech.com/?p=397)
 + [Hadoop中TeraSort算法分析](http://dongxicheng.org/mapreduce/hadoop-terasort-analyse/)
