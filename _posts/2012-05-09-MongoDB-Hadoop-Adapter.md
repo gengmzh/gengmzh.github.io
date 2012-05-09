@@ -47,7 +47,7 @@ input适配主要是使用`MongoInputFormat`对MongoDB输入进行分割，split
 
 
 ## output
-
+TODO  
 
 ## references
 + [mongo-hadoop](https://github.com/mongodb/mongo-hadoop)
