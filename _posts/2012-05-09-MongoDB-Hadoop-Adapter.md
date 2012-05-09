@@ -1,8 +1,8 @@
 ---
 layout: post
 title: MongoDB的Hadoop适配器
-category : MongoDB
-tags : [MongoDB, Hadoop]
+category : [MongoDB, hadoop]
+tags : [MongoDB, hadoop]
 ---
 {% include JB/setup %}
 

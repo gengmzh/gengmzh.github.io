@@ -14,7 +14,6 @@ Hadoop框架能够保证每个reduce的输入都是按键值排序的，因此�
 如果能够保证reduce之间的顺序，即第i个reduce中的数据都小于第i+1个reduce中数据，则最终结果也就全局有序。  
 那么就要先制定区间，各区间和reduce依次对应，用partitioner把数据依次归到对应的reduce中，hadoop中已有相印实现TotalOrderPartitioner。  
 Hadoop全局排序的基本思路：  
-<<<<<<< HEAD
 
 + 先对数据进行抽样，对抽样数据进行排序获得区间
 + Map处理后直接输出数据
