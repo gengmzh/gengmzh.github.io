@@ -12,9 +12,10 @@ tags : [MongoDB, Hadoop]
 
 ## input
 input适配主要是使用`MongoInputFormat`对MongoDB输入进行分割，split逻辑如下：  
-![MongoInputFormat](https://github.com/gengmzh/gengmzh.github.com/blob/master/_includes/MongoInputFormat.png)
+![MongoInputFormat](https://github.com/gengmzh/gengmzh.github.com/raw/master/_includes/MongoInputFormat.png)
 <br>
 相关参数：  
+
 + mongo.input.split.create_input_splits
 	
 	要不要对输入进行分割，false时将这个输入作为一个InputSplit，在`MongoConfig`中配置。
@@ -46,7 +47,8 @@ input适配主要是使用`MongoInputFormat`对MongoDB输入进行分割，split
 
 
 ## output
-
+TODO  
 
 ## references
 + [mongo-hadoop](https://github.com/mongodb/mongo-hadoop)
++ [Hadoop Mapper](http://hadoop.apache.org/common/docs/r1.0.2/mapred_tutorial.html#Mapper)
