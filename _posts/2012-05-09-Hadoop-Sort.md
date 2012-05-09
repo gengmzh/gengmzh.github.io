@@ -102,7 +102,7 @@ Hadoop全局排序的基本思路：
 	
 	}
 
-## 问题记录
+## issues
 **File \_partition.lst does not exist**  
 在google桑翻阅了各种网页，无果。后来发现setPartitionFile没有成功，最初使用`TotalOrderPartitioner.setPartitionFile(getConf(), pfile);`进行设置，
 但`new Job(getConf(), "terasort")`时Job并非直接持有getConf返回的引用，而是又new了一个JobConf，坑啊！所以setPartitionFile得使用`job.getConfiguration()`作为参数。

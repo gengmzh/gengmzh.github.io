@@ -43,8 +43,8 @@ input适配主要是使用`MongoInputFormat`对MongoDB输入进行分割，split
 同样以MongoDB作为输入时，mapper数量会与`MongoInputFormat`分割出的`MongInputSplit`数量一致。  
 
 **mapper会再哪里运行**  
-以hdfs作为输入时，通常mapper会在文件块所在的datanode上运行。以MongoDB作为输入时，由于数据没有驻留datanode那么mapper会在哪里运行呢？  
-
+以hdfs作为输入时，通常mapper会在文件块所在的datanode上运行。以MongoDB作为输入时，由于数据没有驻留datanode那么mapper会在哪里运行呢？    
+TODO
 
 ## output
 TODO  
