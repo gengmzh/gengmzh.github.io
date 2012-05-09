@@ -12,19 +12,30 @@ tags : [MongoDB, Hadoop]
 
 ## input
 input适配主要是使用`MongoInputFormat`对MongoDB输入进行分割，split逻辑如下：  
-![MongoInputFormat](/_includes/MongoInputFormat.png)
+![MongoInputFormat](https://github.com/gengmzh/gengmzh.github.com/raw/master/_includes/MongoInputFormat.png)
 <br>
 相关参数：  
+
 + mongo.input.split.create_input_splits
+	
 	要不要对输入进行分割，false时将这个输入作为一个InputSplit，在`MongoConfig`中配置。
+	
 + isSharded
+	
 	输入集合是否分片，直接在MongoDB中stats得到。
+	
 + mongo.input.split.read_shard_chunks
+	
 	是否可以根据chunk创建InputSplit，在`MongoConfig`中配置。
+	
 + mongo.input.split.read_from_shards
+	
 	是否可以根据shard创建InputSplit，在`MongoConfig`中配置。
+	
 + mongo.input.split_size
+	
 	手动分割MongoDB输入时的块大小，单位M，在`MongoConfig`中配置。
+	
 
 **会有多少个mapper**  
 我们知道以hdfs存储文件作为输入时，mapper的数量=文件块的数量。  
@@ -40,3 +51,4 @@ input适配主要是使用`MongoInputFormat`对MongoDB输入进行分割，split
 
 ## references
 + [mongo-hadoop](https://github.com/mongodb/mongo-hadoop)
++ [Hadoop Mapper](http://hadoop.apache.org/common/docs/r1.0.2/mapred_tutorial.html#Mapper)
