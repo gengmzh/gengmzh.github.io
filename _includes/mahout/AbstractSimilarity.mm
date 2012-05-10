@@ -1,0 +1,8 @@
+<map version="0.9.0">
+<!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
+<node CREATED="1336638756406" ID="ID_230503874" MODIFIED="1336639529856" TEXT="userSimilarity">
+<node CREATED="1336638817971" ID="ID_730939459" MODIFIED="1336639231979" POSITION="right" TEXT="&#x4ece;DataModel&#x4e2d;&#x83b7;&#x53d6;u1&#x3001;u2&#x7684;&#x559c;&#x597d;&#x6570;&#x636e;&#xa;&#x5373;&#x7528;&#x6237;&#x5bf9;&#x4e8b;&#x7269;&#x7684;&#x8bc4;&#x5206;"/>
+<node CREATED="1336639064656" ID="ID_477445544" MODIFIED="1336639400538" POSITION="right" TEXT="&#x4ee5;&#x5f52;&#x5e76;&#x7684;&#x601d;&#x8def;&#x5904;&#x7406;u1/u2&#x7684;&#x559c;&#x597d;&#x6570;&#x636e;&#xff0c;&#x8fc7;&#x6ee4;&#x51fa;&#x4e24;&#x8005;&#x5bf9;&#x76f8;&#x540c;&#x4e8b;&#x7269;&#x7684;&#x8bc4;&#x5206;&#xa;&#x4ee5;u1&#x4e3a;x&#x8f74;&#xff0c;u2&#x4e3a;y&#x8f74;&#xff0c;&#x8ba1;&#x7b97;&#x51fa;&#xff1a;&#xa;sumX&#xff1a;u1&#x8bc4;&#x5206;&#x603b;&#x548c;&#xa;sumX2&#xff1a;u1&#x8bc4;&#x5206;&#x7684;&#x5e73;&#x65b9;&#x548c;&#xa;sumY&#xff1a;u2&#x8bc4;&#x5206;&#x603b;&#x548c;&#xa;sumY2&#xff1a;u2&#x8bc4;&#x5206;&#x7684;&#x5e73;&#x65b9;&#x548c;&#xa;sumXY&#xff1a;u1&#x548c;u2&#x8bc4;&#x5206;&#x7684;&#x4e58;&#x79ef;&#x4e4b;&#x548c;&#xa;sumXYdiff2&#xff1a;u1&#x548c;u2&#x8bc4;&#x5206;&#x7684;&#x5dee;&#x7684;&#x5e73;&#x65b9;&#x548c;"/>
+<node CREATED="1336639493194" ID="ID_49755713" MODIFIED="1336639527490" POSITION="right" TEXT="&#x8c03;&#x7528;&#x62bd;&#x8c61;&#x65b9;&#x6cd5;computeResult&#xff08;&#x7531;&#x5b50;&#x7c7b;&#x5b9e;&#x73b0;&#xff09;&#x8ba1;&#x7b97;&#x6700;&#x7ec8;&#x76f8;&#x4f3c;&#x6027;&#x5f97;&#x5206;"/>
+</node>
+</map>
