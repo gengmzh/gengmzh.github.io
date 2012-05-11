@@ -15,12 +15,12 @@ ItemSimilarity
 UserSimilarity  
 ![UserSimilarity](https://github.com/gengmzh/gengmzh.github.com/raw/master/_includes/mahout/UserSimilarity.jpg)  
 
-可见Mahout为User、Item分别提供了相似性借口，基本的算法都是一样的。  
+可见Mahout为User、Item分别提供了相似性借口，基本的算法都是一样的。其中example包下的是mahout-examples样例中引入的，此文不做讨论。  
 
 两个抽象类  
 
 + AbstractItemSimilarity：简单实现了ItemSimilarity中的allSimilarItemIDs方法，没有其他逻辑
-+ AbstractSimilarity：是similarity包中的核心类，对userSimilarity和itemSimilarity进行了抽象实现，所做的工作如下图所示
++ AbstractSimilarity：是similarity包中的核心类，对基本相似性算法进行了抽象实现，例如userSimilarity方法所做的工作如下图所示
 
 ![AbstractSimilarity.userSimilarity](https://github.com/gengmzh/gengmzh.github.com/raw/master/_includes/mahout/AbstractSimilarity.png)  
 itemSimilarity所做工作与此类似。
@@ -58,8 +58,70 @@ Tanimoto系数，只是简单的是与否，不考虑评分的大小，以两个
     return (double) intersectionSize / (double) unionSize;
 
 ## CityBlockSimilarity
-TODO
+城市区快距离，即曼哈顿距离，原意为在欧几里得空间中两点在每个坐标系上的投影距离之和。在Mahout中用其衡量两个user/item间的相似性时，以计算user相似性为例，两者都评分的item距离视为0剔除不计，
+只有一个user评分的item距离记为1，也就是在以只有一个user评分的item组成的n维空间中计算Manhattan距离，公式如下
+
+	int prefs1Size = u1评分的item数;
+    int prefs2Size = u2评分的item数;
+    int intersectionSize = u1、u2都评分的item数;
+    int distance = pref1 + pref2 - 2 * intersection;
+    return 1.0 / (1.0 + distance);
+
+*此算法没有考虑两者的评分差异，将问题进行了二元简化，直觉认为考虑评分差异并补充数据后效果会更好*
+
+## LogLikelihoodSimilarity
+对数似然性，不可言谈只能参考附件中大师佳作了。基本公式如下
+
+	long prefs1Size = ……
+    long prefs2Size = ……
+    long intersectionSize =……
+    long numItems = dataModel.getNumItems();
+    double logLikelihood =
+        LogLikelihood.logLikelihoodRatio(intersectionSize,
+                                         prefs2Size - intersectionSize,
+                                         prefs1Size - intersectionSize,
+                                         numItems - prefs1Size - prefs2Size + intersectionSize);
+    return 1.0 - 1.0 / (1.0 + logLikelihood);
+
+## SpearmanCorrelationSimilarity
+Spearman系数，类似于皮尔森系数，不同在于用评分rank的顺序进行计算，而不评分，公式不再罗列，目前也只有UserSimilarity接口下有实现。
+
+
+##　others
+其他的如CachingItemSimilarity、CachingUserSimilarity、GenericItemSimilarity、GenericUserSimilarity等都是对基本算法上的装饰实现，待后续用到时在仔细研究。
+
+## Similarity in action
+从给定评分数据集总计算用户1和2之间的相似性，实验代码如下
+
+	DataModel data = new FileDataModel(new File("C:\\Users\\gmz\\AppData\\Local\\Temp\\ratings.txt"));
+
+	UserSimilarity similarity = new PearsonCorrelationSimilarity(data);
+	double value = similarity.userSimilarity(1L, 2L);
+	System.out.println(value);
+
+	similarity = new UncenteredCosineSimilarity(data);
+	value = similarity.userSimilarity(1L, 2L);
+	System.out.println(value);
+
+	similarity = new EuclideanDistanceSimilarity(data);
+	value = similarity.userSimilarity(1L, 2L);
+	System.out.println(value);
+
+完成代码参见[Similarity](https://github.com/gengmzh/alg/blob/master/src/main/java/com/github/gengmzh/mahout/Similarity.java)。  
+输出结果为
+	
+	0.4166666666666694
+	0.9848484848484849
+	0.5694991259569396
+
+测试数据集从 GroupLens的“1 million”转换而来，FileDataModel的数据格式为
+	
+	1,1193,5
+	1,661,3
+
+表示用户1对item1193的评分为5，对item661的评分为3.
 
 ## references
 + [Mahout taste](http://mahout.apache.org//taste.html)
-
++ [Accurate Methods for the Statistics of Surprise and Coincidence](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.14.5962)
++ [SURPRISE AND COINCIDENCE - MUSINGS FROM THE LONG TAIL](http://tdunning.blogspot.com/2008/03/surprise-and-coincidence.html)
