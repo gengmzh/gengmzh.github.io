@@ -9,8 +9,10 @@ tags : [mahout, collaborative filtering, similarity]
 `the similarity algorithms of collaborative filtering in Mahout`
 
 ## Overview
-协同过滤中的相似性算法基本有欧几里得距离、皮尔森系数、夹角余弦等，Mahout中收集了更多，相关类如下图所示：  
+协同过滤中的相似性算法基本有欧几里得距离、皮尔森系数、夹角余弦等，Mahout中收集了更多，如下图所示：  
+ItemSimilarity  
 ![ItemSimilarity](https://github.com/gengmzh/gengmzh.github.com/raw/master/_includes/mahout/ItemSimilarity.jpg)  
+UserSimilarity  
 ![UserSimilarity](https://github.com/gengmzh/gengmzh.github.com/raw/master/_includes/mahout/UserSimilarity.jpg)  
 
 可见Mahout为User、Item分别提供了相似性借口，基本的算法都是一样的。  
