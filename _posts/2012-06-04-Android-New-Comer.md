@@ -200,6 +200,12 @@ update site： `ADT - https://dl-ssl.google.com/android/eclipse/`
 
 需要注意的是，对UI的更新一定要在onPostExecute里进行，否则会报权限错误。
 
+## log missing
+在一个AsyncTask里使用如下语句打印log
+
+	Log.i(ImageTask.class.getSimpleName(), result.getCookie());
+
+但在LogCat里始终看不到该条日志，log去哪儿了？重试了无数次终于发现玄机，原来`result.getCookie()`返回了null，而Log并不输出null日志，无语啊，android调试的一大陷阱！
 
 ## references
 + [Android DevGuide](http://developer.android.com/guide/index.html)
