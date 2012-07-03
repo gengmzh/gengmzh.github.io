@@ -164,7 +164,7 @@ MongoDB会根据索引来构建QueryPlan，每个可用index对应一个QueryPla
 
 oldPlan即是cache住的Optimizer优选结果。
 
-## game over
+## fix
 查询还是慢啊，问题并未最终fix。  
 MongoDB索引就是一颗B-Tree，例如{ "sid" : 1, "stt" : 1, "edt" : 1 }和{ "date" : 1 }是不同字段对应不同的docs，自然无法交叉使用。哪么再建一个{sid:1,date:-1}索引能否让查询更快些？试试  
 
