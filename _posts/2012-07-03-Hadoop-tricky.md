@@ -240,7 +240,3 @@ tags : [hadoop]
 
 ## references
 + [Iterate twice on values](http://stackoverflow.com/questions/6111248/iterate-twice-on-values)
-+ [使用hadoop进行大规模数据的全局排序 ](http://stblog.baidu-tech.com/?p=397)
-+ [Hadoop中TeraSort算法分析](http://dongxicheng.org/mapreduce/hadoop-terasort-analyse/)
-+ [关于Hadoop中的采样器](http://www.cnblogs.com/xuxm2007/archive/2012/03/04/2379143.html)
-+ [Mapreduce-Partition分析](http://blog.oddfoo.net/2011/04/17/mapreduce-partition%E5%88%86%E6%9E%90-2/)
