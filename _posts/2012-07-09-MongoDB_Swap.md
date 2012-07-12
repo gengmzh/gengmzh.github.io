@@ -108,7 +108,6 @@ free查到swap总使用量1659M，与swapon、top查到的一样。
 
 
 ## 3. 问题定位
-且说今日进展，行文可能不连贯。  
 从上面top命令结果可见，除了mongo进程还有一个java进程，为免除意外干扰，重启java进程，再top结果如下
 
 	Production: [mba@mg1sh] ~$ top -umba
@@ -131,7 +130,7 @@ free查到swap总使用量1659M，与swapon、top查到的一样。
 
 可见swap有些回升，used降到900M左右。  
 继续查阅[Checking Server Memory Usage](http://www.mongodb.org/display/DOCS/Checking+Server+Memory+Usage)、[Caching](http://www.mongodb.org/display/DOCS/Caching)
-两篇官方doc，怀疑和客户端连接有关。mongod/mongos会为每个客户端连接创建一个线程，每个线程会有一个stack，2.0版本后默认栈大小应该是`the lesser of the system setting or 1MB`，参照huoding的文章实际验证下：
+两篇官方doc，怀疑和客户端连接有关。mongod/mongos会为每个客户端连接创建一个线程，每个线程会有一个stack，2.0版本后默认栈大小应该是`the lesser of the system setting or 1MB`，实际验证下：
 
 	Production: [root@mg1sh] /home/mba$ ulimit -a|grep stack
 	stack size              (kbytes, -s) 10240
@@ -151,8 +150,8 @@ free查到swap总使用量1659M，与swapon、top查到的一样。
 	--  
 	……
 
-实际使用的stack大小为10M？待确定。。。  
-可以使用`ulimit -s 1024`更改系统默认stack大小，但需要重启mongod，先以27028（PID3371）这个进程进行测试，执行记录如下：
+可见实际使用的stack大小为10M，why？待确定。。。  
+可以使用`ulimit -s 1024`更改系统默认stack大小，但需要重启mongod，先以MongoDB 27028（PID3371）进程进行测试，执行记录如下：
 
 	// 先看下swap used有973892K
 	Production: [root@mg1sh] /home/mba$ free
@@ -161,7 +160,7 @@ free查到swap总使用量1659M，与swapon、top查到的一样。
 	-/+ buffers/cache:    2458652   46989984
 	Swap:     12289684     973892   11315792
 	
-	// top看到MongoDB进程27028（PID3371）RES为3.4g，paging过的SWAP为89g
+	// top看到进程27028（PID3371）RES为3.4g，paging过的SWAP为89g
 	Production: [root@mg1sh] /home/mba$ top -umba
 	top - 17:06:48 up 194 days,  2:47,  1 user,  load average: 0.16, 0.06, 0.01
 	Tasks: 165 total,   1 running, 164 sleeping,   0 stopped,   0 zombie
@@ -191,10 +190,8 @@ free查到swap总使用量1659M，与swapon、top查到的一样。
 	Production: [gmz@mg1sh] ~$ sudo su mba
 	Production: [mba@mg1sh] /home/gmz$ cd
 	Production: [mba@mg1sh] ~$
-	Production: [mba@mg1sh] /home/gmz$ cd 
-	Production: [mba@mg1sh] ~$ 
 	
-	// 修改默认stack size
+	// 临时修改默认stack size
 	Production: [mba@mg1sh] ~$ ulimit -a|grep stack
 	stack size              (kbytes, -s) 10240
 	Production: [mba@mg1sh] ~$ ulimit -s 1024
@@ -207,12 +204,10 @@ free查到swap总使用量1659M，与swapon、top查到的一样。
 	all output going to: /data1/mba-logs/shard02/mongod.log
 	forked process: 15520
 
-	// 重启后验证新的27028（PID15520）所用栈大小为1024K
+	// 验证新的27028（PID15520）所用栈大小，确为1024K
 	Production: [mba@mg1sh] ~$ cat /proc/15520/limits |grep stack
 	Max stack size            1048576              1048576              bytes     
-	Production: [mba@mg1sh] ~$ 
-	
-	Production: [mba@mg1sh] ~$ 
+	Production: [mba@mg1sh] ~$ 	
 	Production: [mba@mg1sh] ~$ cat /proc/15520/smaps |grep 1024 -B 2 -A 6 |head -10
 	Swap:        0 kB
 	40301000-40401000 rw-p 40301000 00:00 0 
@@ -225,7 +220,7 @@ free查到swap总使用量1659M，与swapon、top查到的一样。
 	Swap:        0 kB
 	--
 	
-	// free验证27028释放了约100M的swap
+	// 重启后释放了约100M的swap
 	Production: [mba@mg1sh] ~$ free
 	             total       used       free     shared    buffers     cached
 	Mem:      49448636   49272492     176144          0     169488   46682492
@@ -255,8 +250,8 @@ free查到swap总使用量1659M，与swapon、top查到的一样。
 	insert  query update delete getmore command flushes mapped  vsize    res faults locked % idx miss %     qr|qw   ar|aw  netIn netOut  conn     set repl       time 
 	    *0     *0     *0     *0       0     1|0       0  20.2g  40.5g    31m      0        0          0       0|0     0|0    62b     1k    12 shard02  SEC   17:43:39 
 
-如果猜测没错，12个连接原先共占用120M内存，重启后只占用12M内存，如果这些连接都空闲并被swap了，所以交换区能够回收约100M。perfect！！！  
-这种方式能够真正fix swap不断诡异增长的问题，还待继续观察。  
+如果所猜没错，12个连接原先共占用120M内存，重启后只占用12M内存，如果这些连接都空闲并被swap了，所以交换区能够回收约100M。perfect！！！  
+但是这种方式是否能够真正fix swap诡异增长的问题，还待继续观察。  
 
 
 ## references
@@ -265,7 +260,6 @@ free查到swap总使用量1659M，与swapon、top查到的一样。
 + [Linux系统中Java程序占用swap空间的问题](http://www.iteye.com/topic/162526)
 + [释放swap虚拟内存的方法](http://www.unix-center.net/bbs/viewthread.php?tid=13006)
 + [MySQL如何避免使用Linux的swap分区](http://tieba.baidu.com/p/1210406666?pid=14267091463&cid=0)
-
 + [Checking Server Memory Usage](http://www.mongodb.org/display/DOCS/Checking+Server+Memory+Usage)
 + [Caching](http://www.mongodb.org/display/DOCS/Caching)
 + [MongoDB与内存](http://huoding.com/2011/08/19/107)
