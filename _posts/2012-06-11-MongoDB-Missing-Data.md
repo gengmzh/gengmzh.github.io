@@ -21,6 +21,7 @@ MongoDB默认是异步写，`WriteConcern.NORMAL`，只会报一些网络异常�
 ---
 happy split line  
 
+
 修改为SAFE模式，观察两周没有再发先有数据丢失情况。
 
 ## CursorNotFound: cursor not found on server
