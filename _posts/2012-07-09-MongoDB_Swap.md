@@ -255,6 +255,7 @@ free查到swap总使用量1659M，与swapon、top查到的一样。
 
 ---
 
+
 OK，猜测是错的。  
 MongoDB2.0以上default stack size确实是取得`the lesser of the system setting or 1MB`，只是这个是在thread创建时确定的。
 参见[default stack size](https://groups.google.com/forum/?fromgroups#!topic/mongodb-user/GOAOwYH483c)里Eliot最后回复我的追问。  
