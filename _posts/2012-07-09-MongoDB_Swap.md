@@ -253,6 +253,25 @@ free查到swap总使用量1659M，与swapon、top查到的一样。
 如果所猜没错，12个连接原先共占用120M内存，重启后只占用12M内存，如果这些连接都空闲并被swap了，所以交换区能够回收约100M。perfect！！！  
 但是这种方式是否能够真正fix swap诡异增长的问题，还待继续观察。  
 
+---
+
+OK，猜测是错的。  
+MongoDB2.0以上default stack size确实是取得`the lesser of the system setting or 1MB`，只是这个是在thread创建时确定的。
+参见[default stack size](https://groups.google.com/forum/?fromgroups#!topic/mongodb-user/GOAOwYH483c)里Eliot最后回复我的追问。  
+另外还有一问，参见[will the server closes the client connection automatically](https://groups.google.com/forum/?fromgroups#!topic/mongodb-user/IdSp7WcA66o)，
+mongod/mongos不会自动关闭客户端连接，即便连接已经超时，这个工作是由OS/TCP完成的，当然会有些延迟。如果sockettimeout指定30min，实际操作几秒钟就完成了，为了保险client最好主动关闭连接。  
+<br>
+
+**the real answer**  
+1. 查询MongoDB日志发现有垃圾数据造成balancer失败，日志如下
+
+	Wed Jul 11 03:18:02 [Balancer] balancer move failed: { chunkTooBig: true, estimatedChunkSize: 163939008, errmsg: "chunk too big to move", ok: 0.0 } from: shard01 to: shard03 chunk: { _id: "mba.user.base-sid_"m-20212-1"stt_20120401edt_20120430", lastmod: Timestamp 23000|1, ns: "mba.user.base", min: { sid: "m-20212-1", stt: 20120401, edt: 20120430 }, max: { sid: "m-20212-1", stt: 20120402, edt: 20120402 }, shard: "shard01" }
+
+删除垃圾数据，balancer成功。  
+2. 修改程序代码，及时关闭客户端连接。  
+3. 此外，重启了集群中部分mongod进程（configdb和replSet中的primary节点没有重启），使得swap恢复到合理范围。  
+经过这三项调整后，观察一周swap一直正常。
+
 
 ## references
 + [Linux Swap之谜](http://unix-cd.com/vc/www/28/2009-02/13513.html)
@@ -267,3 +286,5 @@ free查到swap总使用量1659M，与swapon、top查到的一样。
 + [important config note on running MongoDB in production on Linux](https://groups.google.com/forum/?fromgroups#!topic/mongodb-user/GOAOwYH483c)
 + [2.0 Release Notes](http://www.mongodb.org/display/DOCS/2.0+Release+Notes)
 + [Linux Programmer's Manual](http://www.kernel.org/doc/man-pages/online/pages/man5/proc.5.html)
++ [default stack size](https://groups.google.com/forum/?fromgroups#!topic/mongodb-user/GOAOwYH483c)
++ [will the server closes the client connection automatically](https://groups.google.com/forum/?fromgroups#!topic/mongodb-user/IdSp7WcA66o)
