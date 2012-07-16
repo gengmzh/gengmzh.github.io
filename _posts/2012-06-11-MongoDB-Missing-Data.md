@@ -18,9 +18,11 @@ tags : [MongoDB]
 MongoDB默认是异步写，`WriteConcern.NORMAL`，只会报一些网络异常，不管mongod有没有真的写入数据。因此在导库日志中看不到数据丢失相关的错误。
 问题定位的第一步就是改用安全模式，`WriteConcern.SAFE`，不但会报网络错误，还会执行getLastError，等待mongod返回insert结果。
 
---------
-happy split line
------------
+---
+
+happy split line  
+
+
 修改为SAFE模式，观察两周没有再发先有数据丢失情况。
 
 ## CursorNotFound: cursor not found on server
