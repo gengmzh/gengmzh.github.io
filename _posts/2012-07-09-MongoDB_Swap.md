@@ -253,7 +253,9 @@ free查到swap总使用量1659M，与swapon、top查到的一样。
 如果所猜没错，12个连接原先共占用120M内存，重启后只占用12M内存，如果这些连接都空闲并被swap了，所以交换区能够回收约100M。perfect！！！  
 但是这种方式是否能够真正fix swap诡异增长的问题，还待继续观察。  
 
-=================happy split line=================   
+---
+
+
 OK，猜测是错的。  
 MongoDB2.0以上default stack size确实是取得`the lesser of the system setting or 1MB`，只是这个是在thread创建时确定的。
 参见[default stack size](https://groups.google.com/forum/?fromgroups#!topic/mongodb-user/GOAOwYH483c)里Eliot最后回复我的追问。  
@@ -285,5 +287,5 @@ mongod/mongos不会自动关闭客户端连接，即便连接已经超时，这�
 + [important config note on running MongoDB in production on Linux](https://groups.google.com/forum/?fromgroups#!topic/mongodb-user/GOAOwYH483c)
 + [2.0 Release Notes](http://www.mongodb.org/display/DOCS/2.0+Release+Notes)
 + [Linux Programmer's Manual](http://www.kernel.org/doc/man-pages/online/pages/man5/proc.5.html)
-+ [Linux Programmer's Manual](http://www.kernel.org/doc/man-pages/online/pages/man5/proc.5.html)
-+ [Linux Programmer's Manual](http://www.kernel.org/doc/man-pages/online/pages/man5/proc.5.html)
++ [default stack size](https://groups.google.com/forum/?fromgroups#!topic/mongodb-user/GOAOwYH483c)
++ [will the server closes the client connection automatically](https://groups.google.com/forum/?fromgroups#!topic/mongodb-user/IdSp7WcA66o)
