@@ -14,9 +14,9 @@ tags : [hadoop, bloom, filter]
 ![Bloom Filter](https://github.com/gengmzh/gengmzh.github.com/raw/master/_includes/bloom_filter.jpg)  
 集合中的元素a对应第1位、第2位，元素b对应第2位、第3位，这3位都置为1了。此时再判断元素c，由于其hash映射到第1位和第3位，就会发生碰撞，给出错误的“在集合中”的结果（false positive）。
 但永远不会给出错误的“不在集合中”的判断（false negative），比如元素d映射到第3位和第5位，由于第5位为0所以肯定不在集合中。
+  
 
-
-#### 1. Filter in Hadoop
+### 1. Filter in Hadoop
 Hadoop对Bloom Filter进行了简单的抽象和封装，如下：  
 ![Hadoop Bloom Filter](https://github.com/gengmzh/gengmzh.github.com/raw/master/_includes/hadoop_bloom_filter.png)  
 
@@ -44,8 +44,8 @@ Hadoop对Bloom Filter进行了简单的抽象和封装，如下：
 
 *CountingBloomFilter.buckets2words: 通过先减1再除以除数再加1来达到Math.ceil的效果，是个很巧妙的计算。*
 
-#### 2. how to use?
-`Bloom Filter`的应用场景很多，特别是在海量数据处理方面，比如简单的过滤、去重统计、数据抽样等。  
+### 2. how to use?
+Bloom Filter的应用场景很多，特别是在海量数据处理方面，比如简单的过滤、去重统计、数据抽样等。  
 **独立访客统计**  
 
 	// 统计逻辑
@@ -64,7 +64,7 @@ Hadoop对Bloom Filter进行了简单的抽象和封装，如下：
 与前两种方式对比，节省下map阶段的内存和IO，节省了reduce阶段的IO和带宽。
 
 
-#### references
+### references
 + [Bloom Filter](http://en.wikipedia.org/wiki/Bloom_filter)
 + [Counting Bloom Filter](http://wenku.baidu.com/view/f30e3945a8956bec0975e3fa.html)
 + [Theory and Network Applications of Dynamic Bloom Filters](http://www.cse.fau.edu/~jie/research/publications/Publication_files/infocom2006.pdf)
