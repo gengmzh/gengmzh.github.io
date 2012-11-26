@@ -64,6 +64,7 @@ Bloom Filter的应用场景很多，特别是在海量数据处理方面，比�
 与前两种方式对比，节省下map阶段的内存和IO，节省了reduce阶段的IO和带宽。
 
 
+
 ### references
 + [Bloom Filter](http://en.wikipedia.org/wiki/Bloom_filter)
 + [Counting Bloom Filter](http://wenku.baidu.com/view/f30e3945a8956bec0975e3fa.html)
