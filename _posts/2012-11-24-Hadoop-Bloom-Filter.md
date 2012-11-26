@@ -1,12 +1,14 @@
 ---
 layout: post
-title: Inside Hadoop: Bloom Filter
+title: Inside Hadoop, Bloom Filter
 category : hadoop
 tags : [hadoop, bloom, filter]
 ---
 {% include JB/setup %}
 
+
 `Bloom Filter`  
+  
 布隆过滤器采用hash算法将元素映射到位数租的1位或n位上，被映射到的位都置为1，没映射到的都位是0，因此判断元素是否属于集合时只需要判断其对应的位是否都为1即可，
 无论是时间复杂度还是空间复杂度都是线性的，简洁而高效。当然这是有代价的：  
 ![Bloom Filter](https://github.com/gengmzh/gengmzh.github.com/raw/master/_includes/bloom_filter.jpg)  
@@ -18,12 +20,12 @@ tags : [hadoop, bloom, filter]
 Hadoop对Bloom Filter进行了简单的抽象和封装，如下：  
 ![Hadoop Bloom Filter](https://github.com/gengmzh/gengmzh.github.com/raw/master/_includes/hadoop_bloom_filter.png)  
 
-`Filter`: 抽象的过滤器父类，对基础熟悉和方法进行了抽象，属性如vectorSize、nbHash、hashType，方法如add、membershipTest、and、or、xor等。  
-`BloomFilter`: 布隆过滤器的典型实现，只能插入、查找，不能删除。  
-`CountingBloomFilter`: 计数过滤器将布隆过滤器中每个bit扩展为一个很小的计数器，每个counter4个bits，最大计数为15，add时一直累加直到15，delete时一直减少直到0.
+**Filter**: 抽象的过滤器父类，对基础熟悉和方法进行了抽象，属性如vectorSize、nbHash、hashType，方法如add、membershipTest、and、or、xor等。  
+**BloomFilter**: 布隆过滤器的典型实现，只能插入、查找，不能删除。  
+**CountingBloomFilter**: 计数过滤器将布隆过滤器中每个bit扩展为一个很小的计数器，每个counter4个bits，最大计数为15，add时一直累加直到15，delete时一直减少直到0.
 4位表示一个counter并非偶然，而是数理推导的结果。  
-`DynamicBloomFilter`: 从设计模式上说动态过滤器只是对布隆过滤器的简单装饰，初始时就是一个BloomFilter，当添加的元素超过设定的阀值时就再加一个BloomFilter，如此以往实现动态效果。  
-`RetouchedBloomFilter`: 是对BloomFilter的扩展，通过记录每次add的元素实现有选择的清0，相比之下空间复杂度会很高，没有想到特别好的应用场景。  
+**DynamicBloomFilter**: 从设计模式上说动态过滤器只是对布隆过滤器的简单装饰，初始时就是一个BloomFilter，当添加的元素超过设定的阀值时就再加一个BloomFilter，如此以往实现动态效果。  
+**RetouchedBloomFilter**: 是对BloomFilter的扩展，通过记录每次add的元素实现有选择的清0，相比之下空间复杂度会很高，没有想到特别好的应用场景。  
   
 主要属性说明：  
 
@@ -56,7 +58,7 @@ Hadoop对Bloom Filter进行了简单的抽象和封装，如下：
 			bloomFilter.add(userId);
 
 
-**Hadoop Join**
+**Hadoop Join**  
 在Hadoop分布式计算平台上，通常Join操作有两种实现方式：一是map端精确匹配，二是reduce端精确匹配。第一种方案需要把所有数据都加在到内存里，内存要求较大；第二种需要把所有数据从map传输到reducer，IO、带宽消耗较大。  
 这是就可以用到Bloom Filter，方法也很简单，可以先在local环境下把所需key压缩到Bloom Filter里，然后在map阶段进行大范围的删选，可以过滤到绝大部分不需要的记录，如果是0错误率场景再在reduce阶段进行精确匹配，过滤掉那些漏网之鱼。
 与前两种方式对比，节省下map阶段的内存和IO，节省了reduce阶段的IO和带宽。
