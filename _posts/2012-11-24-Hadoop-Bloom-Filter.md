@@ -45,7 +45,7 @@ Hadoop对Bloom Filter进行了简单的抽象和封装，如下：
 *CountingBloomFilter.buckets2words: 通过先减1再除以除数再加1来达到Math.ceil的效果，是个很巧妙的计算。*
 
 #### 2. how to use?
-`Bloom Filter`的应用场景很多，特别是在海量数据处理方面，比如简单的过滤、去重统计、数据抽样等。  
+Bloom Filter的应用场景很多，特别是在海量数据处理方面，比如简单的过滤、去重统计、数据抽样等。  
 **独立访客统计**  
 
 	// 统计逻辑
