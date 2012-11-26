@@ -11,7 +11,7 @@ tags : [hadoop, bloom, filter]
   
 布隆过滤器采用hash算法将元素映射到位数租的1位或n位上，被映射到的位都置为1，没映射到的都位是0，因此判断元素是否属于集合时只需要判断其对应的位是否都为1即可，
 无论是时间复杂度还是空间复杂度都是线性的，简洁而高效。当然这是有代价的：  
-![Bloom Filter](https://github.com/gengmzh/gengmzh.github.com/raw/master/_includes/bloom_filter.jpg)  
+![Bloom Filter](https://github.com/gengmzh/gengmzh.github.com/raw/master/_includes/bloom_filter.png)  
 集合中的元素a对应第1位、第2位，元素b对应第2位、第3位，这3位都置为1了。此时再判断元素c，由于其hash映射到第1位和第3位，就会发生碰撞，给出错误的“在集合中”的结果（false positive）。
 但永远不会给出错误的“不在集合中”的判断（false negative），比如元素d映射到第3位和第5位，由于第5位为0所以肯定不在集合中。
   
