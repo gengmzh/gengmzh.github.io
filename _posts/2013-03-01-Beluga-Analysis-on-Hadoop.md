@@ -26,6 +26,7 @@ tags : [QRcode]
 </object>
 </div>
 
+
 ### references
 + [Hadoop Documentation](http://hadoop.apache.org/docs/r1.0.4/)
 
