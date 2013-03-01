@@ -24,6 +24,7 @@ tags : [hadoop]
 		wmode="window" allowscriptaccess="always" bgcolor="#FFFFFF" ver="9.0.0" allowfullscreen="true">
 	</embed>
 </object>
+  
 
 click to see [How Hadoop works?](http://wenku.baidu.com/view/d654cd6d27d3240c8447ef2f.html?st=1)
 
