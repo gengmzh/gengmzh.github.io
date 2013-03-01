@@ -2,15 +2,15 @@
 layout: post
 title: Inside Hadoop, Hadoop架构、核心机制及配置调优
 category : java
-tags : [QRcode]
+tags : [hadoop]
 ---
 {% include JB/setup %}
 
 
 `How hadoop works?`  
-在一次技术分享上用到的PPT，主要介绍了Hadoop的基本概念、架构、HDFS、MapReduce核心机制以及配置调优等，主要是图形表达文字较少。  
+在一次技术分享上写的PPT，主要介绍了Hadoop的基本概念、架构、HDFS、MapReduce核心机制以及配置调优等，主要是图形表达文字较少。  
 
-<div>
+
 <object width="630" height="500" align="middle" id="reader" 
 	codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" 
 	classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">
@@ -24,8 +24,8 @@ tags : [QRcode]
 		wmode="window" allowscriptaccess="always" bgcolor="#FFFFFF" ver="9.0.0" allowfullscreen="true">
 	</embed>
 </object>
-</div>
 
+click to see [How Hadoop works?](http://wenku.baidu.com/view/d654cd6d27d3240c8447ef2f.html?st=1)
 
 ### references
 + [Hadoop Documentation](http://hadoop.apache.org/docs/r1.0.4/)
