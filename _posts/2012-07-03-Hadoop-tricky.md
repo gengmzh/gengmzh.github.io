@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Hadoop Tricky
-category : hadoop
+category : Hadoop
 tags : [hadoop]
 ---
 {% include JB/setup %}

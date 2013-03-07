@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 使用Hadoop进行全排序
-category : hadoop
+category : Hadoop
 tags : [hadoop]
 ---
 {% include JB/setup %}

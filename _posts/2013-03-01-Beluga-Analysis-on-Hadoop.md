@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Inside Hadoop, Hadoop架构、核心机制及配置调优
-category : java
+category : Hadoop
 tags : [hadoop]
 ---
 {% include JB/setup %}

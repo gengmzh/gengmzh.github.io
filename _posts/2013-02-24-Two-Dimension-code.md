@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 二维码的生成与解析
-category : java
+category : Android
 tags : [QRcode]
 ---
 {% include JB/setup %}

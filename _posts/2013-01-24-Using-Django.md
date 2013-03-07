@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Using Django
-category : hadoop
+category : Python
 tags : [python, Django]
 ---
 {% include JB/setup %}

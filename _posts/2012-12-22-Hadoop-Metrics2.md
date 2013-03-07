@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Inside Hadoop, Metrics2 System
-category : hadoop
+category : Hadoop
 tags : [hadoop, metrics2]
 ---
 {% include JB/setup %}

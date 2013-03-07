@@ -1,7 +1,7 @@
 ---
 layout: post
 title: hudson slave 配置
-category : engineering
+category : lessons
 tags : [hudson]
 ---
 {% include JB/setup %}

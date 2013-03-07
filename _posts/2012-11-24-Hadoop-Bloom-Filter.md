@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Inside Hadoop, Bloom Filter
-category : hadoop
+category : Hadoop
 tags : [hadoop, bloom, filter]
 ---
 {% include JB/setup %}

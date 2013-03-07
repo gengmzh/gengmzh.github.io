@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Inside Hadoop, Hadoop IPC/RPC
-category : java
+category : Hadoop
 tags : [hadoop, IPC, RPC]
 ---
 {% include JB/setup %}
