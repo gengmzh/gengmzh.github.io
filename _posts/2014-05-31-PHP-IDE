@@ -1,0 +1,49 @@
+---
+layout: post
+title: PHP, Windows下开发环境搭建
+category : PHP
+tags : [PHP, IDE]
+---
+{% include JB/setup %}
+
+
+`PHP IDE on Windows`  
+本文简要记录Windows下PHP开发环境搭建的步骤，以备后续自查。  
+
+### 1. Apache httpd
+从[Apache httpd官网](http://httpd.apache.org/)下载最新版本的httpd服务器，当前版本是[httpd-2.2.25-win32-x86-openssl-0.9.8y.msi](http://apache.fayea.com/apache-mirror//httpd/binaries/win32/httpd-2.2.25-win32-x86-openssl-0.9.8y.msi)。  
+下载后根据提示逐步安装完成，在系统托盘处进行启停。默认端口为80，启动后直接访问`http://localhost`，显示
+
+  It works!
+
+即表示httpd服务器安装成功。  
+关于安装版本：
+
++ no ssl: 不支持ssl安全认证
++ openssl: 支持ssl安全认证，使用https协议而非http。
+
+**修正**  
+为了兼容最新版本的PHP，这里需要安装[Apache Lounge](http://www.apachelounge.com/)发布的最新版的httpd，当前是[httpd-2.4.9-win32-VC11.zip](http://www.apachelounge.com/download/VC11/binaries/httpd-2.4.9-win32-VC11.zip)。  
+参照压缩包中的`ReadMe.txt`进行安装，注意不要漏掉`Visual C++ Redistributable for Visual Studio 2012 Update 4`这一步。  
+
+
+httpd相关配置参见[httpd docs](http://httpd.apache.org/docs/2.2/)。  
+
+
+### 2. PHP及扩展服务
+从[PHP官网](http://php.net/)下载最新版本的PHP，当前版本是[php-5.5.13-Win32-VC11-x86.zip](http://windows.php.net/downloads/releases/php-5.5.13-Win32-VC11-x86.zip)。  
+关于版本选择请参考[PHP Download](http://windows.php.net/download/)左侧`Which version do I choose?`描述。  
+
+
+
+### 3. PDT for Eclipse
+参考[PDT安装指南](http://wiki.eclipse.org/PDT/Installation)。  
+打开Help->Install New Software...，选中Juno Repository`Juno - http://download.eclipse.org/releases/juno`，在Programming Languanges下选中`PHP Development Tools(PDT)`，逐步安装即可。  
+*这里有PHP Development Tools(PDT)与PHP Development Tools(PDT) SDK Feature两个选项，如果同时按照可能会出现版本冲突，先装第一个即可*  
+
+
+### references
++ [Apache httpd](http://httpd.apache.org/)
++ [Apache Lounge](http://www.apachelounge.com/)
++ [PHP](http://php.net/)
++ [PHP Development Tools](http://projects.eclipse.org/projects/tools.pdt)
