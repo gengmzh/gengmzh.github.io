@@ -71,8 +71,16 @@ httpd相关配置参见[httpd docs](http://httpd.apache.org/docs/2.2/)。
 *这里有PHP Development Tools(PDT)与PHP Development Tools(PDT) SDK Feature两个选项，如果同时按照可能会出现版本冲突，先装第一个即可*  
 
 
+**debugger**  
+由于zend debugger尚不支持PHP 5.5，这里只能选用XDebug，当前最新版本为[php_xdebug-2.2.5-5.5-vc11.dll](http://xdebug.org/files/php_xdebug-2.2.5-5.5-vc11.dll)。  
+不知道应该安装哪个版本可使用[custom installation instructions](http://xdebug.org/wizard.php)。  
+
+
+
 ### references
 + [Apache httpd](http://httpd.apache.org/)
 + [Apache Lounge](http://www.apachelounge.com/)
 + [PHP](http://php.net/)
 + [PHP Development Tools](http://projects.eclipse.org/projects/tools.pdt)
++ [xdebug](http://xdebug.org/index.php)
++ [zend debugger](http://www.zend.com/products/studio/downloads)
