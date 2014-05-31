@@ -24,7 +24,7 @@ tags : [PHP, IDE]
 
 **修正**  
 为了兼容最新版本的PHP，这里需要安装[Apache Lounge](http://www.apachelounge.com/)发布的最新版的httpd，当前是[httpd-2.4.9-win32-VC11.zip](http://www.apachelounge.com/download/VC11/binaries/httpd-2.4.9-win32-VC11.zip)。  
-参照压缩包中的`ReadMe.txt`进行安装，注意不要漏掉`Visual C++ Redistributable for Visual Studio 2012 Update 4`这一步。  
+参照压缩包中的`ReadMe.txt`进行安装，注意不要漏掉`Visual C++ Redistributable for Visual Studio 2012 Update 4`这一步，将压缩包解压到`C:\Apache24`目录。  
 
 
 httpd相关配置参见[httpd docs](http://httpd.apache.org/docs/2.2/)。  
@@ -33,7 +33,36 @@ httpd相关配置参见[httpd docs](http://httpd.apache.org/docs/2.2/)。
 ### 2. PHP及扩展服务
 从[PHP官网](http://php.net/)下载最新版本的PHP，当前版本是[php-5.5.13-Win32-VC11-x86.zip](http://windows.php.net/downloads/releases/php-5.5.13-Win32-VC11-x86.zip)。  
 关于版本选择请参考[PHP Download](http://windows.php.net/download/)左侧`Which version do I choose?`描述。  
+将压缩包解压到`C:\php-5.5.13`目录，参照其中的`install.txt`文件进行安装，主要有：
 
++ 复制php.ini-development，命名为php.ini
++ 修改doc_root = "C:/Apache24/htdocs"
++ 修改extension_dir = "C:/php-5.5.13/ext"
++ 打开扩展库，如extension=php_mysql.dll、extension=php_curl.dll等
++ 修改时区date.timezone = Asia/Shanghai
+
+**Installing as an Apache module**  
+找到最后一个#LoadModule，在其后添加：
+
+  # For PHP 5 do something like this:
+  LoadModule php5_module "C:/php-5.5.13/php5apache2_4.dll"
+  AddType application/x-httpd-php .php
+  # configure the path to php.ini
+  PHPIniDir "C:/php-5.5.13"
+
+修改DirectoryIndex如下：
+
+  <IfModule dir_module>
+    DirectoryIndex index.php index.html
+  </IfModule>
+
+在htdocs目录下添加`index.php`文件，内容为：
+
+  <?php
+    phpinfo();
+  ?>
+
+重启httpd，能正常输出php信息即表示PHP安装配置成功。  
 
 
 ### 3. PDT for Eclipse
