@@ -42,13 +42,13 @@ httpd相关配置参见[httpd docs](http://httpd.apache.org/docs/2.2/)。
 + 修改时区date.timezone = Asia/Shanghai
 
 **Installing as an Apache module**  
-找到最后一个#LoadModule，在其后添加：
+在`httpd.conf`中找到最后一个#LoadModule，在其后添加：
 
-  # For PHP 5 do something like this:
-  LoadModule php5_module "C:/php-5.5.13/php5apache2_4.dll"
-  AddType application/x-httpd-php .php
-  # configure the path to php.ini
-  PHPIniDir "C:/php-5.5.13"
+  # For PHP 5 do something like this:  
+  LoadModule php5_module "C:/php-5.5.13/php5apache2_4.dll"  
+  AddType application/x-httpd-php .php  
+  # configure the path to php.ini  
+  PHPIniDir "C:/php-5.5.13"  
 
 修改DirectoryIndex如下：
 
