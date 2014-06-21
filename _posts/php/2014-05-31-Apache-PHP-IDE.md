@@ -44,23 +44,26 @@ httpd相关配置参见[httpd docs](http://httpd.apache.org/docs/2.2/)。
 **Installing as an Apache module**  
 在`httpd.conf`中找到最后一个#LoadModule，在其后添加：
 
-  # For PHP 5 do something like this:  
-  LoadModule php5_module "C:/php-5.5.13/php5apache2_4.dll"  
-  AddType application/x-httpd-php .php  
-  # configure the path to php.ini  
-  PHPIniDir "C:/php-5.5.13"  
+	# For PHP 5 do something like this:
+	LoadModule php5_module "C:/php-5.5.13/php5apache2_4.dll"
+	AddType application/x-httpd-php .php
+	# configure the path to php.ini
+	PHPIniDir "C:/php-5.5.13"
+
 
 修改DirectoryIndex如下：
 
-  <IfModule dir_module>
-    DirectoryIndex index.php index.html
-  </IfModule>
+	<IfModule dir_module>
+		DirectoryIndex index.php index.html
+	</IfModule>
+
 
 在htdocs目录下添加`index.php`文件，内容为：
 
-  <?php
-    phpinfo();
-  ?>
+	<?php
+		phpinfo();
+	?>
+
 
 重启httpd，能正常输出php信息即表示PHP安装配置成功。  
 
