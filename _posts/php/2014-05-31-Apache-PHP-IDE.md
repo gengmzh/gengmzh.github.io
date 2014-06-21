@@ -79,6 +79,20 @@ httpd相关配置参见[httpd docs](http://httpd.apache.org/docs/2.2/)。
 不知道应该安装哪个版本可使用[custom installation instructions](http://xdebug.org/wizard.php)。  
 
 
+### 4. PHP项目部署
+在`httpd.conf`中添加如下配置，指定代码目录，重启httpd即可：  
+
+	<IfModule dir_module>  
+	    DirectoryIndex index.php index.html index.htm  
+	    Alias /php-test "D:/workspace/proj/quku/php-test"  
+	    <Directory D:/workspace/proj/quku/php-test>  
+	    Options Indexes FollowSymLinks  
+	    AllowOverride None
+	    Require all granted
+	    </Directory>  
+	</IfModule>
+
+
 
 ### references
 + [Apache httpd](http://httpd.apache.org/)
