@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Design Pattern Online: 创建型模式
+title: Design Pattern Online, creational patterns
 category : Design Pattern
-tags : [Design Pattern, ]
+tags : [Design Pattern]
 ---
 {% include JB/setup %}
 
