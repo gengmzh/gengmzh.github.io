@@ -31,6 +31,8 @@ tags : [Design Pattern]
 **实例**  
 
 
+  
+
 ### 2. Factory Method: 工厂方法模式
 *Define an interface for creating a single object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.*  
 
