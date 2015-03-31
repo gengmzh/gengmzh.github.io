@@ -13,7 +13,9 @@ tags : [Design Pattern]
 
 
 ### 1. Abstract Factory: 抽象工厂模式
-Provide an interface for creating families of related or dependent objects without specifying their concrete classes.  
+`Provide an interface for creating families of related or dependent objects without specifying their concrete classes.`  
+
+**结构**  
 
 抽象工厂的结构图如下：  
 ![Bloom Filter](https://github.com/gengmzh/gengmzh.github.com/raw/master/_includes/design_pattern/abstract_factory.jpg)  
@@ -27,7 +29,9 @@ Provide an interface for creating families of related or dependent objects witho
 
 
 ### 2. Factory Method: 工厂方法模式
-Define an interface for creating a single object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.  
+`Define an interface for creating a single object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.`  
+
+**结构**  
 
 工厂方法的结构图如下：  
 ![Bloom Filter](https://github.com/gengmzh/gengmzh.github.com/raw/master/_includes/design_pattern/factory_method.png)  
@@ -41,7 +45,9 @@ Define an interface for creating a single object, but let subclasses decide whic
 
 
 ### 3. Builder: 建造者模式
-Separate the construction of a complex object from its representation, allowing the same construction process to create various representations.  
+`Separate the construction of a complex object from its representation, allowing the same construction process to create various representations.`  
+
+**结构**  
 
 建造者的结构图如下：  
 ![Bloom Filter](https://github.com/gengmzh/gengmzh.github.com/raw/master/_includes/design_pattern/builder.png)  
@@ -55,7 +61,9 @@ Separate the construction of a complex object from its representation, allowing 
 
 
 ### 4. Prototype: 原型模式
-Specify the kinds of objects to create using a prototypical instance, and create new objects by copying this prototype.  
+`Specify the kinds of objects to create using a prototypical instance, and create new objects by copying this prototype.`  
+
+**结构**  
 
 原型模式的结构图如下：  
 ![Bloom Filter](https://github.com/gengmzh/gengmzh.github.com/raw/master/_includes/design_pattern/prototype.jpg)  
@@ -69,7 +77,9 @@ Specify the kinds of objects to create using a prototypical instance, and create
 
 
 ### 5. Singleton: 单例模式
-Ensure a class has only one instance, and provide a global point of access to it.  
+`Ensure a class has only one instance, and provide a global point of access to it.`  
+
+**结构**  
 
 工厂方法的结构图如下：  
 ![Bloom Filter](https://github.com/gengmzh/gengmzh.github.com/raw/master/_includes/design_pattern/singleton.png)  
