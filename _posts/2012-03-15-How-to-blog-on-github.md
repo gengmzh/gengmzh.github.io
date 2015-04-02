@@ -9,15 +9,20 @@ tagline: my first blog on github.com
 
 ### references
 **base structure**  
-+ [Jekyll-Bootstrap](http://jekyllbootstrap.com/)
+
++ [Jekyll-Bootstrap](http://jekyllbootstrap.com/)  
+
 
 **markdown syntax**  
+
 + [Markdown basics](https://help.github.com/articles/markdown-basics)
 + [Markdown Syntax](http://daringfireball.net/projects/markdown/syntax)
 + [Markdown 语法](http://markdown.tw/)
 + [Markdown 中文基础教程文档](http://opengit.org/open/?f=source_markdown-basics)
 
+
 **others**  
+
 + [Github Pages](http://pages.github.com/)
 + [Jekyll wiki](https://github.com/mojombo/jekyll/wiki)
 + [mojombo source](https://github.com/mojombo/mojombo.github.com)
@@ -25,3 +30,5 @@ tagline: my first blog on github.com
 + [安装使用jekyll](http://www.feelapi.com/archives/324)
 + [Running Jekyll on Windows](http://www.madhur.co.in/blog/2011/09/01/runningjekyllwindows.html)
 + [什么是Github 使用GitHub作为博客引擎](http://www.kuqin.com/managetool/20111231/317001.html)
+
+
