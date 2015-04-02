@@ -141,7 +141,8 @@ Lock的唯一实现类就是ReentrantLock，具备可重入性，默认是非公
 
 
 <br />
-### references
+
+## references
 
 + [The Java™ Tutorials: Concurrency](http://docs.oracle.com/javase/tutorial/essential/concurrency/sync.html)
 + [Java 多线程面试问题汇总](http://www.ituring.com.cn/article/111835)
