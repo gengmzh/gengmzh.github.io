@@ -99,27 +99,35 @@ tags : [jdk, concurrency]
 这就是活锁，活锁有一定几率可以自行解开，而死锁一定是无法自解的。要避免活锁，只需要优化“礼让”的问题，比如使用先到先得的策略等。  
 
 
-## 二. 锁
+## 二. Java中的锁及其他
 
 **1. 同步：synchronized**  
+
 synchronized关键字简洁明了，可以用来声明同步方法，也可以同步代码块，两者没有本质区别，只是同步代码块时粒度可以控制得更细些，效率也就更高。  
 同步方法是和当前对象实例关联的，也就是需要获取this的锁，而同步的静态方法是和当前类实例关联的，也就是需要获得class的锁。  
 
 synchronized是在JVM层面实现的同步，Java中每个对象都有一个监视器（Monitor Lock），或叫本质锁（Intrinsic Lock）。进入synchronized方法或代码块时，需要先获得响应对象的监视器，退出时再释放监视器。  
 
-+ synchronized同步是排他的，同一时间只有一个线程可以后的监视器；
 + synchronized同步是可重入的；
-+ 执行synchronized方法或代码块时，会先清除栈中数据从堆中重新读入，执行完后再将最新结果回写到堆中；
++ synchronized同步是排他的，同一时间只有一个线程可以后的监视器，即原子性；
++ 执行synchronized方法或代码块时，会先清除栈中数据从堆中重新读入，执行完后再将最新结果回写到堆中，即可见性；
 
 
 **2. 锁：Lock**  
 
+JDK1.5在java.util.concurrent.locks包下提供了另一套锁机制，Lock完全在jdk api层面实现，非常精巧，这里先简列要点.  
+先看下Lock接口常用方法：  
 
++ void lock()：获得锁，如果锁不可用则一直等待直到获得为止；
++ boolean tryLock()：如果lock成功立即返回true，否则返回false；如果指定时间，则在指定时间获得锁则反馈true，否则返回false；
++ void lockInterruptibly()：如果lock住直接返回，否则等待直到获得锁，可以被其他线程interrupt；
 
-**3. 原子操作**  
+Lock的唯一实现类就是ReentrantLock，具备可重入性，默认是非公平锁。公平锁、非公平锁含义如下：  
 
++ 公平锁：尽量按照请求锁的顺序来获得锁，当锁被释放时，等待时间最久的线程获得该锁；
++ 非公平锁：不保证按照请求锁的顺序来分配锁，所有等待线程随机抢占；
 
-**4. 不可变对象**  
+此外还有ReadWriteLock接口，用于分拆读写操作，使得多个线程可以同时读，而同一时间点只有一个线程可以写。ReentrantReadWriteLock是其唯一实现。  
 
 
 
@@ -127,5 +135,7 @@ synchronized是在JVM层面实现的同步，Java中每个对象都有一个监�
 
 + [The Java™ Tutorials: Concurrency](http://docs.oracle.com/javase/tutorial/essential/concurrency/sync.html)
 + [Java 多线程面试问题汇总](http://www.ituring.com.cn/article/111835)
++ [深入浅出 Java Concurrency](http://blog.csdn.net/fg2006/article/details/6397900)
 + [深入JVM锁机制](http://wenku.baidu.com/view/41480552f01dc281e53af090.html)
++ [Java并发编程：Lock](http://www.cnblogs.com/dolphin0520/p/3923167.html)
 
