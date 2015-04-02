@@ -130,7 +130,17 @@ Lock的唯一实现类就是ReentrantLock，具备可重入性，默认是非公
 此外还有ReadWriteLock接口，用于分拆读写操作，使得多个线程可以同时读，而同一时间点只有一个线程可以写。ReentrantReadWriteLock是其唯一实现。  
 
 
+**3. synchronized、Lock对比**  
 
+两者对比异同点如下：  
+
++ 两者都可重入；
++ synchronized自动释放占有的锁，即便在发生异常的时候；Lock需要显示地unlock；
++ synchronized不可中断，Lock可以中断（lockInterruptibly方法），可以知道是否获得了锁（tryLock方法），因而可以做回退操作；
++ Lock可以支持读写锁，提升读操作性能；
+
+
+### 
 ### references
 
 + [The Java™ Tutorials: Concurrency](http://docs.oracle.com/javase/tutorial/essential/concurrency/sync.html)
