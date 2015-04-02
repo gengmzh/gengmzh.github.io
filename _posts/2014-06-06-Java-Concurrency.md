@@ -139,8 +139,8 @@ Lock的唯一实现类就是ReentrantLock，具备可重入性，默认是非公
 + synchronized不可中断，Lock可以中断（lockInterruptibly方法），可以知道是否获得了锁（tryLock方法），因而可以做回退操作；
 + Lock可以支持读写锁，提升读操作性能；
 
+<br /><br />
 
-### 
 ### references
 
 + [The Java™ Tutorials: Concurrency](http://docs.oracle.com/javase/tutorial/essential/concurrency/sync.html)
