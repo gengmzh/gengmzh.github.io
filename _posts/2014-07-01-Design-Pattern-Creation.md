@@ -18,7 +18,7 @@ tags : [Design Pattern]
 **结构**  
 
 抽象工厂的结构图如下：  
-![Bloom Filter](/assets/img/design_pattern/abstract_factory.jpg)  
+![Bloom Filter](/assets/images/design_pattern/abstract_factory.jpg)  
 
 **解析**  
 
@@ -37,7 +37,7 @@ tags : [Design Pattern]
 **结构**  
 
 工厂方法的结构图如下：  
-![Bloom Filter](/assets/img/design_pattern/factory_method.png)  
+![Bloom Filter](/assets/images/design_pattern/factory_method.png)  
 
 **解析**  
 
@@ -53,7 +53,7 @@ tags : [Design Pattern]
 **结构**  
 
 建造者的结构图如下：  
-![Bloom Filter](/assets/img/design_pattern/builder.png)  
+![Bloom Filter](/assets/images/design_pattern/builder.png)  
 
 **解析**  
 
@@ -69,7 +69,7 @@ tags : [Design Pattern]
 **结构**  
 
 原型模式的结构图如下：  
-![Bloom Filter](/assets/img/design_pattern/prototype.jpg)  
+![Bloom Filter](/assets/images/design_pattern/prototype.jpg)  
 
 **解析**  
 
@@ -85,7 +85,7 @@ tags : [Design Pattern]
 **结构**  
 
 工厂方法的结构图如下：  
-![Bloom Filter](/assets/img/design_pattern/singleton.png)  
+![Bloom Filter](/assets/images/design_pattern/singleton.png)  
 
 **解析**  
 
