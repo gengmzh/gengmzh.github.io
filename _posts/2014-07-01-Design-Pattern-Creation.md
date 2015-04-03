@@ -49,9 +49,9 @@ tags : [Design Pattern]
 简化版的工厂方法模式在实际项目中的应用如下，也称简单工厂模式。  
 ![Factory Method](/assets/images/design_pattern/factory_method.x.jpg)  
 
-+ 这里省列了工厂接口（或抽象类），只保留工厂实现类；
-+ 客户端通过type参数告知当前要获取的是哪个Handler，即产品类型的选择交由工厂控制；
-+ 这种简单实现破坏了OCP原则，在新增Handler时HandlerFactory必须跟着修改；
++ 这里省列了工厂接口（或抽象类），只保留工厂实现类。
++ 客户端通过type参数告知当前要获取的是哪个Handler，即产品类型的选择交由工厂控制。
++ 这种简单实现破坏了OCP原则，在新增Handler时HandlerFactory必须跟着修改。所幸在这个系统中，Handler短期内不可能增加，简单的实现反而更加简洁。
 
 
 ### 3. Builder: 建造者模式
