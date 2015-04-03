@@ -18,10 +18,10 @@ tags : [Design Pattern]
 **结构**  
 
 适配器的结构图如下：  
-![Adapter](/assets/img/design_pattern/adapter-class.png)  
+![Adapter](/assets/images/design_pattern/adapter-class.png)  
 基于集成的结构。  
 
-![Adapter](/assets/img/design_pattern/adapter-instance.png)  
+![Adapter](/assets/images/design_pattern/adapter-instance.png)  
 基于组合的结构。  
 
 
@@ -37,7 +37,7 @@ tags : [Design Pattern]
 **结构**  
 
 桥接模式的结构图如下：  
-![Bridge](/assets/img/design_pattern/bridge.jpg)  
+![Bridge](/assets/images/design_pattern/bridge.jpg)  
 
 **解析**  
 
@@ -51,7 +51,7 @@ tags : [Design Pattern]
 **结构**  
 
 组合模式的结构图如下：  
-![Composite](/assets/img/design_pattern/composite.jpg)  
+![Composite](/assets/images/design_pattern/composite.jpg)  
 
 **解析**  
 
@@ -65,7 +65,7 @@ tags : [Design Pattern]
 **结构**  
 
 装饰模式的结构图如下：  
-![Decorator](/assets/img/design_pattern/decorator.jpg)  
+![Decorator](/assets/images/design_pattern/decorator.jpg)  
 
 **解析**  
 
@@ -79,7 +79,7 @@ tags : [Design Pattern]
 **结构**  
 
 外观模式的结构图如下：  
-![Facade](/assets/img/design_pattern/facade.png)  
+![Facade](/assets/images/design_pattern/facade.png)  
 
 **解析**  
 
@@ -93,7 +93,7 @@ tags : [Design Pattern]
 **结构**  
 
 享元模式的结构图如下：  
-![Flyweight](/assets/img/design_pattern/flyweight.jpg)  
+![Flyweight](/assets/images/design_pattern/flyweight.jpg)  
 
 **解析**  
 
@@ -107,7 +107,7 @@ tags : [Design Pattern]
 **结构**  
 
 代理模式的结构图如下：  
-![Proxy](/assets/img/design_pattern/proxy.jpg)  
+![Proxy](/assets/images/design_pattern/proxy.jpg)  
 
 **解析**  
 
