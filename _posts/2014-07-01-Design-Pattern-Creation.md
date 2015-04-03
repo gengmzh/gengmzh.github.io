@@ -96,11 +96,35 @@ tags : [Design Pattern]
 
 **解析**  
 
-+ 
++ 单例模式有多种实现，如饿汉式、饱汉式、延迟实例化等。
++ 单例通常可以保证系统中只有一个实例，但也有例外情况需要注意，如多个ClassLoader、分布式环境等。
++ 单例模式的延伸是多例，即为不同的业务场景创建多个实例。
 
 
 **实例**  
+实际项目中的配置类常用单例形式实现，示例如下：  
 
+
+	public class Config {
+		
+		private static Config instance;
+		
+		public static Config getInstance() {
+			if (instance == null) {
+				synchronized (Config.class) {
+					if (instance == null) {
+						instance = new Config();
+					}
+				}
+			}
+			return instance;
+		}
+		
+		private Config() {
+			……
+		}
+		……
+	}
 
 
 
