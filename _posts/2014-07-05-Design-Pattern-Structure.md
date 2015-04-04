@@ -19,7 +19,7 @@ tags : [Design Pattern]
 
 适配器的结构图如下：  
 ![Adapter](/assets/images/design_pattern/adapter-class.png)  
-基于集成的结构。  
+基于继承的结构。  
 
 ![Adapter](/assets/images/design_pattern/adapter-instance.png)  
 基于组合的结构。  
@@ -27,9 +27,19 @@ tags : [Design Pattern]
 
 **解析**  
 
++ 适配器将不兼容的接口转换为相互的接口，即意为着对原有接口的改变。
++ 基于继承的实现更容易重载既有行为，而基于组合的实现更容易对多个adaptee进行统一适配。
++ 通过增加适配器，可以不用对不兼容的双方进行修改，也可以在适配器中适当的重定义行为，这一点和装饰模式类似。
+
 
 **实例**  
-  
+
+实际项目中的一个适配器实现如下：  
+
+![Adapter](/assets/images/design_pattern/adapter.x.jpg)  
+
++ 这里省略了适配器接口，因为可以预见无需再有其他的适配器实现；
+
 
 ### 2. Bridge: 桥接模式
 *Decouple an abstraction from its implementation allowing the two to vary independently.*  
