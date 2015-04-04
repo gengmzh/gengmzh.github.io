@@ -129,9 +129,14 @@ tags : [Design Pattern]
 
 **解析**  
 
++ 代理模式意在对客户端的访问进行控制，提供与实体对象相同的接口。而适配器意在对原有接口进行适配，往往改变了接口形态。
 
 **实例**  
 
+从项目中抽象出来的一个代理模式示例如下：  
+![Proxy](/assets/images/design_pattern/proxy.x.jpg)  
+
++ 为了使得BCS操作更加安全，提供一个代理类，在get、put、delete等操作时增加重试机制。
 
 
 ### references
