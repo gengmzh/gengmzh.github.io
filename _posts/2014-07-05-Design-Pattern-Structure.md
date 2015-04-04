@@ -137,6 +137,7 @@ tags : [Design Pattern]
 ![Proxy](/assets/images/design_pattern/proxy.x.jpg)  
 
 + 为了使得BCS操作更加安全，提供一个代理类，在get、put、delete等操作时增加重试机制。
++ 由于没有抽象接口，BCSObjectProxy直接继承了BCSObject类，并且集成了具体对象。
 
 
 ### references
