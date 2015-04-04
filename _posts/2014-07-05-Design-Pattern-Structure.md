@@ -38,7 +38,8 @@ tags : [Design Pattern]
 
 ![Adapter](/assets/images/design_pattern/adapter.x.jpg)  
 
-+ 这里省略了适配器接口，因为可以预见无需再有其他的适配器实现；
++ 为了适配Worker和Processor增加了Executor类，主要是对输入、输出参数进行了转换。
++ 这里省略了适配器接口，因为可以预见无需再有其他的适配器实现，也就不用再抽象一个接口出来了。
 
 
 ### 2. Bridge: 桥接模式
@@ -65,8 +66,15 @@ tags : [Design Pattern]
 
 **解析**  
 
++ 组合对象需继承相同的接口，并聚集其他实现类作为“整体”的“部分”，往往通过“装饰”这些“部分”的功能来实现统一接口。
++ 通过增加组合类，在不改变原有代码的情况下就实现了新的功能。
 
 **实例**  
+
+一个简单组合模式应用如下：  
+![Composite](/assets/images/design_pattern/composite.x.jpg)  
+
++ 为了实现同时处理song和artist数据的功能，增加AllinfoDataParser，内部对data进行分拆，调用song和artist的parser分别处理，再将处理结果统一返回。
 
 
 ### 4. Decorator: 装饰模式
