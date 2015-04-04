@@ -140,6 +140,8 @@ tags : [Design Pattern]
 + 由于没有抽象接口，BCSObjectProxy直接继承了BCSObject类，并且集成了具体对象。
 
 
+<br />
+
 ### references
 
 + [Software design pattern](http://en.wikipedia.org/wiki/Software_design_pattern)
