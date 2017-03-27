@@ -126,5 +126,7 @@ JB :
   #   ./_includes/custom/[HELPER]
   # where [HELPER] is the name of the helper you are overriding.
   
+  # theme
+  theme :
+    name : 'twitter'
 
-theme: jekyll-theme-tactile
